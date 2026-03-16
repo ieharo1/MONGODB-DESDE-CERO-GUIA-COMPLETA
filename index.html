@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB desde Cero - Guía Completa</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <span class="logo-icon">🍃</span>
+                    <span class="logo-text">MongoDB desde Cero</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#que-es">¿Qué es?</a></li>
+                    <li><a href="#arquitectura">Arquitectura</a></li>
+                    <li><a href="#temas">Temas</a></li>
+                    <li><a href="#ejemplos">Ejemplos</a></li>
+                </ul>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>MongoDB desde Cero</h1>
+            <p class="hero-subtitle">Guía completa para aprender MongoDB desde fundamentos hasta conceptos avanzados.</p>
+            <div class="hero-buttons">
+                <a href="#que-es" class="btn btn-primary">Comenzar</a>
+                <a href="#ejemplos" class="btn btn-secondary">Ver ejemplos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Qué es MongoDB? -->
+    <section id="que-es" class="section">
+        <div class="container">
+            <h2>¿Qué es MongoDB?</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📄</div>
+                    <h3>Base de Datos NoSQL</h3>
+                    <p>MongoDB es una base de datos NoSQL orientada a documentos, que almacena datos en formato BSON (Binary JSON) flexible y escalable.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Para Qué Sirve</h3>
+                    <p>Ideal para aplicaciones web modernas, big data, contenido en tiempo real, catálogos de productos y datos semiestructurados.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔧</div>
+                    <h3>Características Principales</h3>
+                    <p>Schema-less, alto rendimiento, escalabilidad horizontal con sharding, replicación automática y consultas ad-hoc.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>💡 ¿Sabías qué?</h4>
+                <p>MongoDB fue creado en 2009 por 10gen (ahora MongoDB Inc.). Su nombre proviene de "humongous" (enorme en inglés), reflejando su capacidad para manejar grandes volúmenes de datos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arquitectura -->
+    <section id="arquitectura" class="section section-alt">
+        <div class="container">
+            <h2>Arquitectura de MongoDB</h2>
+            <p class="section-intro">MongoDB utiliza una arquitectura distribuida con documentos BSON, colecciones y réplica sets para alta disponibilidad.</p>
+
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <h4>Aplicación / Driver</h4>
+                    <p>Node.js, Python, Java, C# drivers</p>
+                </div>
+                <div class="arch-arrow">⬇️</div>
+                <div class="arch-layer">
+                    <h4>MongoDB Server (mongod)</h4>
+                    <p>Proceso principal de base de datos</p>
+                </div>
+                <div class="arch-arrow">⬇️</div>
+                <div class="arch-layer">
+                    <h4>Replica Set</h4>
+                    <p>Primary + Secondary nodes</p>
+                </div>
+                <div class="arch-arrow">⬇️</div>
+                <div class="arch-layer">
+                    <h4>Sharded Cluster</h4>
+                    <p>Distribución horizontal de datos</p>
+                </div>
+            </div>
+
+            <div class="components-grid">
+                <div class="component-card">
+                    <h4>📊 Conceptos Clave</h4>
+                    <ul>
+                        <li>Documento - Registro en formato BSON</li>
+                        <li>Colección - Grupo de documentos</li>
+                        <li>Base de Datos - Grupo de colecciones</li>
+                        <li>Índice - Optimización de consultas</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h4>💾 Replica Set</h4>
+                    <ul>
+                        <li>Primary Node - Recibe escrituras</li>
+                        <li>Secondary Nodes - Réplicas de lectura</li>
+                        <li>Arbiter - Voto en elecciones</li>
+                        <li>Auto-election - Failover automático</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h4>🔒 Sharding</h4>
+                    <ul>
+                        <li>Shard Key - Clave de distribución</li>
+                        <li>Config Servers - Metadatos del cluster</li>
+                        <li>Mongos - Router de consultas</li>
+                        <li>Chunks - Fragmentos de datos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Temas -->
+    <section id="temas" class="section">
+        <div class="container">
+            <h2>Contenido del Curso</h2>
+            <div class="topics-grid">
+                <div class="topic-card" data-topic="1">
+                    <div class="topic-number">01</div>
+                    <h3>Introducción</h3>
+                    <p>Conceptos de NoSQL, diferencias con SQL y casos de uso de MongoDB.</p>
+                    <a href="#" class="topic-link">Ver tema →</a>
+                </div>
+                <div class="topic-card" data-topic="2">
+                    <div class="topic-number">02</div>
+                    <h3>Instalación</h3>
+                    <p>Instalación de MongoDB Community Server y MongoDB Compass.</p>
+                    <a href="#" class="topic-link">Ver tema →</a>
+                </div>
+                <div class="topic-card" data-topic="3">
+                    <div class="topic-number">03</div>
+                    <h3>Conceptos básicos</h3>
+                    <p>Documentos, colecciones, CRUD operations y tipos de datos BSON.</p>
+                    <a href="#" class="topic-link">Ver tema →</a>
+                </div>
+                <div class="topic-card" data-topic="4">
+                    <div class="topic-number">04</div>
+                    <h3>Ejemplos prácticos</h3>
+                    <p>Consultas con find(), agregaciones, índices y operaciones avanzadas.</p>
+                    <a href="#" class="topic-link">Ver tema →</a>
+                </div>
+                <div class="topic-card" data-topic="5">
+                    <div class="topic-number">05</div>
+                    <h3>Buenas prácticas</h3>
+                    <p>Modelado de datos, indexing estratégico y optimización de consultas.</p>
+                    <a href="#" class="topic-link">Ver tema →</a>
+                </div>
+                <div class="topic-card" data-topic="6">
+                    <div class="topic-number">06</div>
+                    <h3>Casos reales</h3>
+                    <p>Implementaciones en producción, sharding y replicación.</p>
+                    <a href="#" class="topic-link">Ver tema →</a>
+                </div>
+                <div class="topic-card" data-topic="7">
+                    <div class="topic-number">07</div>
+                    <h3>Proyecto final</h3>
+                    <p>Aplicación completa con MongoDB, Node.js y Express.</p>
+                    <a href="#" class="topic-link">Ver tema →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ejemplos -->
+    <section id="ejemplos" class="section section-alt">
+        <div class="container">
+            <h2>Ejemplos de Código</h2>
+            <div class="examples-container">
+                <div class="example-card">
+                    <h4>Insertar Documento</h4>
+                    <pre><code class="language-javascript">db.usuarios.insertOne({
+    nombre: "Juan",
+    email: "juan@email.com",
+    edad: 30,
+    fechaRegistro: new Date()
+});</code></pre>
+                </div>
+                <div class="example-card">
+                    <h4>Consultar Documentos</h4>
+                    <pre><code class="language-javascript">db.usuarios.find({
+    edad: { $gte: 25 }
+}).sort({ nombre: 1 });</code></pre>
+                </div>
+                <div class="example-card">
+                    <h4>Actualizar Documento</h4>
+                    <pre><code class="language-javascript">db.usuarios.updateOne(
+    { email: "juan@email.com" },
+    { $set: { edad: 31 } }
+);</code></pre>
+                </div>
+                <div class="example-card">
+                    <h4>Agregación</h4>
+                    <pre><code class="language-javascript">db.ventas.aggregate([
+    { $group: {
+        _id: "$categoria",
+        total: { $sum: "$monto" }
+    }}
+]);</code></pre>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#" class="btn btn-primary">Ver más ejemplos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>MongoDB desde Cero</h4>
+                    <p>Guía educativa completa para aprender MongoDB desde los fundamentos hasta conceptos avanzados.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#que-es">¿Qué es?</a></li>
+                        <li><a href="#temas">Temas</a></li>
+                        <li><a href="#ejemplos">Ejemplos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="https://docs.mongodb.com/" target="_blank">Docs Oficiales</a></li>
+                        <li><a href="https://www.mongodb.com/" target="_blank">Sitio Oficial</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>👨‍💻 Desarrollado por <strong>Isaac Esteban Haro Torres</strong></p>
+                <p class="developer-info">Ingeniero en Sistemas · Full Stack · Automatización · Data</p>
+                <div class="developer-contact">
+                    <p>📧 Email: <a href="mailto:zackharo1@gmail.com">zackharo1@gmail.com</a></p>
+                    <p>💻 GitHub: <a href="https://github.com/ieharo1" target="_blank">github.com/ieharo1</a></p>
+                </div>
+                <p class="copyright">© 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
