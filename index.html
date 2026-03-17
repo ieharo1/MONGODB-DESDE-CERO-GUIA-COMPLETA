@@ -142,43 +142,202 @@
                     <div class="topic-number">01</div>
                     <h3>Introducción</h3>
                     <p>Conceptos de NoSQL, diferencias con SQL y casos de uso de MongoDB.</p>
-                    <a href="#" class="topic-link">Ver tema →</a>
+                    <a href="#tema1-1" class="topic-link">Ver tema →</a>
                 </div>
                 <div class="topic-card" data-topic="2">
                     <div class="topic-number">02</div>
                     <h3>Instalación</h3>
                     <p>Instalación de MongoDB Community Server y MongoDB Compass.</p>
-                    <a href="#" class="topic-link">Ver tema →</a>
+                    <a href="#tema1-2" class="topic-link">Ver tema →</a>
                 </div>
                 <div class="topic-card" data-topic="3">
                     <div class="topic-number">03</div>
                     <h3>Conceptos básicos</h3>
                     <p>Documentos, colecciones, CRUD operations y tipos de datos BSON.</p>
-                    <a href="#" class="topic-link">Ver tema →</a>
+                    <a href="#tema1-3" class="topic-link">Ver tema →</a>
                 </div>
                 <div class="topic-card" data-topic="4">
                     <div class="topic-number">04</div>
                     <h3>Ejemplos prácticos</h3>
                     <p>Consultas con find(), agregaciones, índices y operaciones avanzadas.</p>
-                    <a href="#" class="topic-link">Ver tema →</a>
+                    <a href="#tema2-1" class="topic-link">Ver tema →</a>
                 </div>
                 <div class="topic-card" data-topic="5">
                     <div class="topic-number">05</div>
                     <h3>Buenas prácticas</h3>
                     <p>Modelado de datos, indexing estratégico y optimización de consultas.</p>
-                    <a href="#" class="topic-link">Ver tema →</a>
+                    <a href="#tema2-2" class="topic-link">Ver tema →</a>
                 </div>
                 <div class="topic-card" data-topic="6">
                     <div class="topic-number">06</div>
                     <h3>Casos reales</h3>
                     <p>Implementaciones en producción, sharding y replicación.</p>
-                    <a href="#" class="topic-link">Ver tema →</a>
+                    <a href="#tema3-1" class="topic-link">Ver tema →</a>
                 </div>
                 <div class="topic-card" data-topic="7">
                     <div class="topic-number">07</div>
                     <h3>Proyecto final</h3>
                     <p>Aplicación completa con MongoDB, Node.js y Express.</p>
-                    <a href="#" class="topic-link">Ver tema →</a>
+                    <a href="#tema3-2" class="topic-link">Ver tema →</a>
+                </div>
+            </div>
+
+            <!-- Contenido Detallado de Temas -->
+            <div class="topic-content-container">
+                <div class="content-detail" id="tema1-1">
+                    <h3>🍃 Introducción a MongoDB</h3>
+                    <div class="content-body">
+                        <p><strong>MongoDB</strong> es una base de datos NoSQL orientada a documentos, que almacena datos en formato BSON (Binary JSON) flexible y escalable.</p>
+                        <h4>Historia:</h4>
+                        <p>MongoDB fue creado en 2009 por 10gen (ahora MongoDB Inc.). Su nombre proviene de "humongous" (enorme en inglés), reflejando su capacidad para manejar grandes volúmenes de datos.</p>
+                        <h4>Diferencias con SQL:</h4>
+                        <ul>
+                            <li><strong>Schema-less:</strong> No requiere esquema fijo</li>
+                            <li><strong>Documentos:</strong> Datos en formato BSON/JSON</li>
+                            <li><strong>Escalabilidad:</strong> Horizontal con sharding</li>
+                            <li><strong>Consultas:</strong> Basadas en documentos, no JOINs</li>
+                        </ul>
+                        <div class="info-box">
+                            <strong>💡 ¿Sabías qué?</strong>
+                            <p>MongoDB es usado por empresas como eBay, Forbes y Google para manejar grandes volúmenes de datos no estructurados.</p>
+                        </div>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
+
+                <div class="content-detail" id="tema1-2">
+                    <h3>🔧 Instalación de MongoDB</h3>
+                    <div class="content-body">
+                        <h4>En Windows:</h4>
+                        <ol>
+                            <li>Descarga MongoDB Community Server desde mongodb.com</li>
+                            <li>Ejecuta el instalador</li>
+                            <li>Selecciona "Install as a Service"</li>
+                            <li>Instala MongoDB Compass (GUI)</li>
+                        </ol>
+                        <h4>En Linux (Ubuntu):</h4>
+                        <pre><code>wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org</code></pre>
+                        <h4>En macOS:</h4>
+                        <pre><code>brew tap mongodb/brew
+brew install mongodb-community
+brew services start mongodb-community</code></pre>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
+
+                <div class="content-detail" id="tema1-3">
+                    <h3>📦 Conceptos Básicos</h3>
+                    <div class="content-body">
+                        <h4>Jerarquía de Datos:</h4>
+                        <ul>
+                            <li><strong>Documento:</strong> Unidad básica de datos (BSON)</li>
+                            <li><strong>Colección:</strong> Grupo de documentos</li>
+                            <li><strong>Base de Datos:</strong> Grupo de colecciones</li>
+                        </ul>
+                        <h4>CRUD Operations:</h4>
+                        <pre><code>// CREATE
+db.usuarios.insertOne({ nombre: "Juan", edad: 30 });
+
+// READ
+db.usuarios.find({ edad: { $gte: 25 } });
+
+// UPDATE
+db.usuarios.updateOne(
+    { nombre: "Juan" },
+    { $set: { edad: 31 } }
+);
+
+// DELETE
+db.usuarios.deleteOne({ nombre: "Juan" });</code></pre>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
+
+                <div class="content-detail" id="tema2-1">
+                    <h3>💻 Consultas Avanzadas</h3>
+                    <div class="content-body">
+                        <h4>Operadores de Consulta:</h4>
+                        <pre><code>// Comparación
+db.usuarios.find({ edad: { $gte: 18, $lte: 65 } });
+
+// Lógicos
+db.usuarios.find({
+    $or: [{ edad: { $lt: 18 } }, { pais: "México" }]
+});
+
+// Arrays
+db.usuarios.find({ hobbies: { $in: ["leer", "deporte"] } });</code></pre>
+                        <h4>Agregaciones:</h4>
+                        <pre><code>db.ventas.aggregate([
+    { $match: { fecha: { $gte: new Date("2024-01-01") } } },
+    { $group: {
+        _id: "$categoria",
+        total: { $sum: "$monto" },
+        promedio: { $avg: "$monto" }
+    }},
+    { $sort: { total: -1 } }
+]);</code></pre>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
+
+                <div class="content-detail" id="tema2-2">
+                    <h3>✅ Buenas Prácticas</h3>
+                    <div class="content-body">
+                        <h4>Índices:</h4>
+                        <pre><code>// Crear índice
+db.usuarios.createIndex({ email: 1 });
+
+// Índice compuesto
+db.usuarios.createIndex({ pais: 1, edad: -1 });
+
+// Ver índices
+db.usuarios.getIndexes();</code></pre>
+                        <h4>Modelado de Datos:</h4>
+                        <ul>
+                            <li><strong>Embedding:</strong> Datos relacionados en un documento</li>
+                            <li><strong>Referencing:</strong> Documentos separados con referencias</li>
+                            <li>Usa embedding para relaciones 1:1 y 1:muchos</li>
+                        </ul>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
+
+                <div class="content-detail" id="tema3-1">
+                    <h3>🚀 Casos Reales</h3>
+                    <div class="content-body">
+                        <h4>Replica Set:</h4>
+                        <p>Configuración de alta disponibilidad con nodos primarios y secundarios.</p>
+                        <h4>Sharding:</h4>
+                        <p>Distribución horizontal de datos en múltiples servidores para escalabilidad.</p>
+                        <h4>Backup:</h4>
+                        <pre><code>mongodump --db mi_base_datos --out /backup
+mongorestore /backup/mi_base_datos</code></pre>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
+
+                <div class="content-detail" id="tema3-2">
+                    <h3>📋 Proyecto Final</h3>
+                    <div class="content-body">
+                        <p>Desarrolla una aplicación completa con MongoDB:</p>
+                        <ol>
+                            <li>Diseñar modelo de datos</li>
+                            <li>Configurar MongoDB Atlas (cloud)</li>
+                            <li>Implementar CRUD con Node.js</li>
+                            <li>Crear índices estratégicos</li>
+                            <li>Implementar agregaciones</li>
+                            <li>Configurar backup automático</li>
+                        </ol>
+                        <div class="info-box">
+                            <strong>💡 Proyecto sugerido:</strong>
+                            <p>Crea una API REST para blog con usuarios, posts, comentarios y categorías usando Mongoose.</p>
+                        </div>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
                 </div>
             </div>
         </div>
