@@ -134,63 +134,57 @@
     </section>
 
     <!-- Temas -->
-    <section id="temas" class="section">
+    <section id="temas" class="topics">
         <div class="container">
-            <h2>Contenido del Curso</h2>
+            <h2>📖 Temas del Curso</h2>
+            <p class="topics-intro">Haz clic en cualquier tema para ver el contenido detallado</p>
+            
             <div class="topics-grid">
-                <div class="topic-card" data-topic="1">
-                    <div class="topic-number">01</div>
-                    <div class="topic-icon">📌</div>
-                    <h3>Introducción</h3>
-                    <p>Conceptos de NoSQL, diferencias con SQL y casos de uso de MongoDB.</p>
-                    <a href="#tema1-1" class="topic-link">Ver tema →</a>
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <span class="topic-icon">🍃</span>
+                        <h3>Módulo 1: Fundamentos</h3>
+                    </div>
+                    <ul class="topic-list">
+                        <li><a href="#tema1-1">Introducción a MongoDB</a></li>
+                        <li><a href="#tema1-2">Instalación</a></li>
+                        <li><a href="#tema1-3">Conceptos básicos</a></li>
+                        <li><a href="#tema1-4">Documentos y Colecciones</a></li>
+                    </ul>
+                    <a href="#tema1-1" class="btn-topic">Ver tema →</a>
                 </div>
-                <div class="topic-card" data-topic="2">
-                    <div class="topic-number">02</div>
-                    <div class="topic-icon">⚙️</div>
-                    <h3>Instalación</h3>
-                    <p>Instalación de MongoDB Community Server y MongoDB Compass.</p>
-                    <a href="#tema1-2" class="topic-link">Ver tema →</a>
+
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <span class="topic-icon">⚙️</span>
+                        <h3>Módulo 2: Intermedio</h3>
+                    </div>
+                    <ul class="topic-list">
+                        <li><a href="#tema2-1">Ejemplos prácticos</a></li>
+                        <li><a href="#tema2-2">Buenas prácticas</a></li>
+                        <li><a href="#tema2-3">Consultas y Agregaciones</a></li>
+                        <li><a href="#tema2-4">Índices y Optimización</a></li>
+                    </ul>
+                    <a href="#tema2-1" class="btn-topic">Ver tema →</a>
                 </div>
-                <div class="topic-card" data-topic="3">
-                    <div class="topic-number">03</div>
-                    <div class="topic-icon">📦</div>
-                    <h3>Conceptos básicos</h3>
-                    <p>Documentos, colecciones, CRUD operations y tipos de datos BSON.</p>
-                    <a href="#tema1-3" class="topic-link">Ver tema →</a>
-                </div>
-                <div class="topic-card" data-topic="4">
-                    <div class="topic-number">04</div>
-                    <div class="topic-icon">💻</div>
-                    <h3>Ejemplos prácticos</h3>
-                    <p>Consultas con find(), agregaciones, índices y operaciones avanzadas.</p>
-                    <a href="#tema2-1" class="topic-link">Ver tema →</a>
-                </div>
-                <div class="topic-card" data-topic="5">
-                    <div class="topic-number">05</div>
-                    <div class="topic-icon">✅</div>
-                    <h3>Buenas prácticas</h3>
-                    <p>Modelado de datos, indexing estratégico y optimización de consultas.</p>
-                    <a href="#tema2-2" class="topic-link">Ver tema →</a>
-                </div>
-                <div class="topic-card" data-topic="6">
-                    <div class="topic-number">06</div>
-                    <div class="topic-icon">🚀</div>
-                    <h3>Casos reales</h3>
-                    <p>Implementaciones en producción, sharding y replicación.</p>
-                    <a href="#tema3-1" class="topic-link">Ver tema →</a>
-                </div>
-                <div class="topic-card" data-topic="7">
-                    <div class="topic-number">07</div>
-                    <div class="topic-icon">📋</div>
-                    <h3>Proyecto final</h3>
-                    <p>Aplicación completa con MongoDB, Node.js y Express.</p>
-                    <a href="#tema3-2" class="topic-link">Ver tema →</a>
+
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <span class="topic-icon">🚀</span>
+                        <h3>Módulo 3: Avanzado</h3>
+                    </div>
+                    <ul class="topic-list">
+                        <li><a href="#tema3-1">Casos reales</a></li>
+                        <li><a href="#tema3-2">Proyecto final</a></li>
+                        <li><a href="#tema3-3">Replica Set y Sharding</a></li>
+                        <li><a href="#tema3-4">MongoDB en Producción</a></li>
+                    </ul>
+                    <a href="#tema3-1" class="btn-topic">Ver tema →</a>
                 </div>
             </div>
 
             <!-- Contenido Detallado de Temas -->
-            <div class="topic-content-container">
+            <div class="topic-content">
                 <div class="content-detail" id="tema1-1">
                     <h3>🍃 Introducción a MongoDB</h3>
                     <div class="content-body">
@@ -346,6 +340,195 @@ mongorestore /backup/mi_base_datos</code></pre>
                     </div>
                     <a href="#temas" class="btn btn-back">← Volver a temas</a>
                 </div>
+                <div class="content-detail" id="tema1-4">
+                    <h3>💾 Aggregation Pipeline Avanzado</h3>
+                    <div class="content-body">
+                        <h4>Pipeline Stages:</h4>
+                        <pre><code>db.ventas.aggregate([
+    { $match: { estado: "completada" } },
+    { $group: {
+        _id: "$producto",
+        total_ventas: { $sum: "$cantidad" },
+        ingreso_total: { $sum: { $multiply: ["$precio", "$cantidad"] } }
+    }},
+    { $sort: { ingreso_total: -1 } },
+    { $limit: 10 }
+]);</code></pre>
+                        <h4>Lookup (JOIN en MongoDB):</h4>
+                        <pre><code>db.pedidos.aggregate([
+    { $lookup: {
+        from: "clientes",
+        localField: "cliente_id",
+        foreignField: "_id",
+        as: "cliente_info"
+    }},
+    { $unwind: "$cliente_info" },
+    { $project: {
+        "cliente_info.nombre": 1,
+        "productos": 1,
+        "total": 1
+    }}
+]);</code></pre>
+                        <h4>Cond y Accumulator:</h4>
+                        <pre><code>db.empleados.aggregate([
+    { $group: {
+        _id: "$departamento",
+        empleados: { $sum: 1 },
+        promedio_salario: { $avg: "$salario" },
+        max_salario: { $max: "$salario" },
+        categorias: {
+            $push: {
+                $cond: [
+                    { $gte: ["$salario", 5000] },
+                    "senior",
+                    "junior"
+                ]
+            }
+        }
+    }}
+]);</code></pre>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
+
+                <div class="content-detail" id="tema2-3">
+                    <h3>🔄 Transacciones y Validación</h3>
+                    <div class="content-body">
+                        <h4>Validación de Documentos:</h4>
+                        <pre><code>db.createCollection("productos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["nombre", "precio"],
+            properties: {
+                nombre: { bsonType: "string" },
+                precio: { bsonType: "number", minimum: 0 }
+            }
+        }
+    }
+});</code></pre>
+                        <h4>Transacciones (MongoDB 4.2+):</h4>
+                        <pre><code>const session = db.startSession();
+session.startTransaction();
+
+try {
+    const opts = { session };
+    
+    db.empleados.updateOne(
+        { _id: 1 },
+        { $inc: { saldo: -100 } },
+        opts
+    );
+    
+    db.empleados.updateOne(
+        { _id: 2 },
+        { $inc: { saldo: 100 } },
+        opts
+    );
+    
+    session.commitTransaction();
+} catch (e) {
+    session.abortTransaction();
+    throw e;
+} finally {
+    session.endSession();
+}</code></pre>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
+
+                <div class="content-detail" id="tema2-4">
+                    <h3>🔍 Índices y Optimización</h3>
+                    <div class="content-body">
+                        <h4>Tipos de Índices:</h4>
+                        <pre><code>// Índice simple
+db.coleccion.createIndex({ campo: 1 });
+
+// Índice compuesto
+db.coleccion.createIndex({ campo1: 1, campo2: -1 });
+
+// Índice de texto
+db.articulos.createIndex({ titulo: "text", contenido: "text" });
+
+// Índice único
+db.usuarios.createIndex({ email: 1 }, { unique: true });
+
+// Índice TTL (expiración)
+db.sesiones.createIndex(
+    { "ultimoAcceso": 1 },
+    { expireAfterSeconds: 3600 }
+);</code></pre>
+                        <h4>Text Search:</h4>
+                        <pre><code>db.articulos.find(
+    { $text: { $search: "mongodb tutorial" } },
+    { score: { $meta: "textScore" } }
+).sort({ score: { $meta: "textScore" } });</code></pre>
+                        <h4>Explain:</h4>
+                        <pre><code>db.coleccion.find({ campo: "valor" }).explain("executionStats");</code></pre>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
+
+                <div class="content-detail" id="tema3-3">
+                    <h3>🔒 Seguridad y Roles</h3>
+                    <div class="content-body">
+                        <h4>Autenticación:</h4>
+                        <pre><code>// Crear usuario admin
+db.createUser({
+    user: "admin",
+    pwd: "password_seguro",
+    roles: [
+        { role: "userAdminAnyDatabase", db: "admin" },
+        { role: "readWriteAnyDatabase", db: "admin" }
+    ]
+});
+
+// Habilitar auth en mongod.conf
+security:
+  authorization: enabled</code></pre>
+                        <h4>Roles Personalizados:</h4>
+                        <pre><code>db.createRole({
+    role: "lectura_reportes",
+    privileges: [
+        { resource: { db: "reportes", collection: "" }, actions: ["find"] }
+    ],
+    roles: []
+});</code></pre>
+                        <h4>Backup Seguro:</h4>
+                        <pre><code>mongodump --uri="mongodb://user:pass@host:27017/db" --out=/backup</code></pre>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
+
+                <div class="content-detail" id="tema3-4">
+                    <h3>☁️ MongoDB Atlas y Cloud</h3>
+                    <div class="content-body">
+                        <h4>Atlas Cluster:</h4>
+                        <pre><code>// Conectar desde aplicación
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://user:pass@cluster.mongodb.net/mydb');
+
+// MongoDB Shell
+mongosh "mongodb+srv://cluster.mongodb.net/mydb" --apiVersion 1</code></pre>
+                        <h4>Search Index (Atlas Search):</h4>
+                        <pre><code>// Crear índice en Atlas UI o con mongosh
+db.coll.createSearchIndex(
+    { name: "searchIndex", definition: {
+        mappings: { dynamic: true }
+    }}
+);</code></pre>
+                        <h4>Data API (sin driver):</h4>
+                        <pre><code>// Llamada HTTP a Data API
+fetch('https://data.mongodb-api.com/app/xxx/endpoint/data/v1', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'api-key': 'key' },
+    body: JSON.stringify({ dataSource: 'Cluster0', database: 'test', collection: 'items', filter: {} })
+});</code></pre>
+                        <h4>Triggers en Atlas:</h4>
+                        <p>Automatiza funciones cuando hay cambios en los datos (insert, update, replace, delete).</p>
+                    </div>
+                    <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                </div>
             </div>
         </div>
     </section>
@@ -393,40 +576,23 @@ mongorestore /backup/mi_base_datos</code></pre>
         </div>
     </section>
 
-    <!-- Footer -->
+        <section id="contacto" class="contact">
+            <div class="container">
+                <h2>👨‍💻 Desarrollado por Isaac Esteban Haro Torres</h2>
+                <p class="contact-title">Ingeniero en Sistemas · Full Stack · Automatización · Data</p>
+                <div class="contact-info">
+                    <p>📧 Email: <a href="mailto:zackharo1@gmail.com">zackharo1@gmail.com</a></p>
+                    <p>📱 WhatsApp: 098805517</p>
+                    <p>💻 GitHub: <a href="https://github.com/ieharo1" target="_blank">github.com/ieharo1</a></p>
+                    <p>🌐 Portafolio: <a href="https://ieharo1.github.io/portafolio-isaac.haro/" target="_blank">ieharo1.github.io/portafolio-isaac.haro/</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>MongoDB desde Cero</h4>
-                    <p>Guía educativa completa para aprender MongoDB desde los fundamentos hasta conceptos avanzados.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#que-es">¿Qué es?</a></li>
-                        <li><a href="#temas">Temas</a></li>
-                        <li><a href="#ejemplos">Ejemplos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Recursos</h4>
-                    <ul>
-                        <li><a href="https://docs.mongodb.com/" target="_blank">Docs Oficiales</a></li>
-                        <li><a href="https://www.mongodb.com/" target="_blank">Sitio Oficial</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>👨‍💻 Desarrollado por <strong>Isaac Esteban Haro Torres</strong></p>
-                <p class="developer-info">Ingeniero en Sistemas · Full Stack · Automatización · Data</p>
-                <div class="developer-contact">
-                    <p>📧 Email: <a href="mailto:zackharo1@gmail.com">zackharo1@gmail.com</a></p>
-                    <p>💻 GitHub: <a href="https://github.com/ieharo1" target="_blank">github.com/ieharo1</a></p>
-                </div>
-                <p class="copyright">© 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.</p>
-            </div>
+            <p>&copy; 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.</p>
         </div>
     </footer>
 
